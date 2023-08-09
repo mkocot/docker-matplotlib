@@ -15,7 +15,7 @@ RUN apt-get update && \
 RUN python -m pip install -U pip wheel
 COPY --from=ghcr.io/mkocot/docker-numpy:master ${WHEELS} ${WHEELS}
 RUN python -m pip install --no-index --find-links ${WHEELS} numpy && \
-    pip wheel --no-cache-dir -w ${WHEELS} matplotlib
+    pip wheel --no-cache-dir -w ${WHEELS} 'matplotlib==3.7.2'
 
 FROM scratch
 ARG WHEELS
